@@ -13,16 +13,19 @@ public:
 	void menu();
 	void insert();
 	void display();
+	void modify();
 private:
 	string name, member, email, course, contact, address;
 };
 
 void student::menu()
 {
-menustart:
+	system("cls");
+	menustart:
+
 	int choice;
 	char x;
-	system("cls");
+	
 
 	cout << "\t\t\t-------------------------" << endl;
 	cout << "\t\t\tStudent Management System" << endl;
@@ -37,7 +40,7 @@ menustart:
 	cout << "\t\t\t-------------------------" << endl;
 	cout << "\t\t\tChon Chuc nang: [1/2/3/4]" << endl;
 	cout << "\t\t\t-------------------------" << endl;
-	cout << "Nhap so: ";
+	cout << "\t\t\tNhap so: ";
 	cin >> choice;
 
 	switch (choice)
@@ -55,6 +58,9 @@ menustart:
 		case 2:
 
 			display();
+			break;
+		case 3:
+			modify();
 			break;
 		case 6:
 			exit(0);
@@ -121,6 +127,63 @@ void student::display() {
 	file.close();
 }
 
+void student::modify() {
+	system("cls");
+	fstream file, file1;
+	string number;
+	int found = 0;
+
+	cout << "\t\t\t----------- Chinh sua Ho So SV -------------" << endl;
+	
+	file.open("student.txt", ios::in);
+	if (!file)
+	{
+		cout << "\n\t\t\tKhong Ho So SV ton tai." << endl;
+		file.close();
+	}
+	else
+	{
+		cout << "\t\t\tHay nhap ma so SV de chinh sua ho so." << endl;
+		cout << "\t\t\tNhap Ma So SV: ";
+		cin >> number;
+
+		file1.open("studentModify.txt", ios::app | ios::out);
+		file >> member >> name >> email >> course >> contact >> address;
+		while (!file.eof())
+		{
+			if (number != member) {
+				file1 << " " << member << " " << name << " " << email << " " << course << " " << contact << " " << address << "\n";
+			}
+			else
+			{
+				cout << "\t\t\tNhap ten SV: ";
+				cin >> name;
+				cout << "\t\t\tNhap Ma So VS: ";
+				cin >> member;
+				cout << "\t\t\tNhap email: ";
+				cin >> email;
+				cout << "\t\t\tNhap Khoa hoc: ";
+				cin >> course;
+				cout << "\t\t\tNhap SDT lien he: ";
+				cin >> contact;
+				cout << "\t\t\tNhap Dia chi: ";
+				cin >> address;
+
+				file1 << " " << member << " " << name << " " << email << " " << course << " " << contact << " " << address << "\n";
+				found++;
+			}
+			file >> member >> name >> email >> course >> contact >> address;
+			if (found == 0)
+			{
+				cout << "\t\t\tMa So SV khong tim thay!! " << endl;
+			}
+		}
+		file1.close();
+		file.close();
+		remove("student.txt");
+		rename("studentModify.txt", "student.txt");
+	}
+}
 
 
 int main()
