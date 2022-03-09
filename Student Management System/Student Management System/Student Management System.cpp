@@ -14,6 +14,8 @@ public:
 	void insert();
 	void display();
 	void modify();
+	void search();
+	void deleted();
 private:
 	string name, member, email, course, contact, address;
 };
@@ -56,16 +58,21 @@ void student::menu()
 		
 			break;
 		case 2:
-
 			display();
 			break;
 		case 3:
 			modify();
 			break;
+		case 4:
+			search();
+			break;
+		case 5:
+			deleted();
+			break;
 		case 6:
 			exit(0);
 		default:
-			cout << "\n\t\t\t Thoat";
+			cout << "\n\t\t\t Thoat " << endl;
 	}
 	
 	goto menustart;
@@ -121,7 +128,7 @@ void student::display() {
 		}
 		if (total == 0)
 		{
-			cout << "\n\t\t\tKhong Ho So SV ton tai.";
+			cout << "\n\t\t\tKhong Ho So SV ton tai." << endl;
 		}
 	}
 	file.close();
@@ -173,10 +180,11 @@ void student::modify() {
 				found++;
 			}
 			file >> member >> name >> email >> course >> contact >> address;
-			if (found == 0)
-			{
-				cout << "\t\t\tMa So SV khong tim thay!! " << endl;
-			}
+			
+		}
+		if (found == 0)
+		{
+			cout << "\t\t\tMa So SV khong tim thay!! " << endl;
 		}
 		file1.close();
 		file.close();
@@ -185,6 +193,88 @@ void student::modify() {
 	}
 }
 
+void student::search() {
+	system("cls");
+	fstream file;
+	int found = 0;
+
+	file.open("student.txt", ios::in);
+	if (!file)
+	{
+		cout << "\n\t\t\t----------- Tim kiem Ho So SV -------------" << endl;
+		cout << "\n\t\t\Khong Ho So SV ton tai!! ";
+	}
+	else
+	{
+		string number;
+		cout << "\n\t\t\t----------- Tim kiem Ho So SV -------------" << endl;
+		cout << "\t\t\tHay nhap ma so SV de chinh sua ho so." << endl;
+		cout << "\t\t\tNhap Ma So SV: ";
+		cin >> number;
+		file >> member >> name >> email >> course >> contact >> address;
+		while (!file.eof())
+		{
+			if (number == member)
+			{
+				cout << "\t\t\t Ma so SV: " << member << endl;
+				cout << "\t\t\t Ten SV: " << name << endl;
+				cout << "\t\t\t Email SV: " << email << endl;
+				cout << "\t\t\t Khoa hoc: " << course << endl;
+				cout << "\t\t\t SDT lien he: " << contact << endl;
+				cout << "\t\t\t Dia chi: " << address << endl;
+				found++;
+			}
+			file >> member >> name >> email >> course >> contact >> address;
+		}
+		if (found == 0)
+		{
+			cout << "\t\t\tMa So SV khong tim thay!! " << endl;
+		}
+		file.close();
+	}
+}
+
+void student::deleted() {
+	system("cls");
+	fstream file, file1;
+	string number;
+	int found = 0;
+
+	cout << "\t\t\t----------- Xoa Ho So SV -------------" << endl;
+
+	file.open("student.txt", ios::in);
+	if (!file)
+	{
+		cout << "\n\t\t\tKhong Ho So SV ton tai." << endl;
+		file.close();
+	}
+	else
+	{
+		cout << "\t\t\tHay nhap ma so SV de chinh sua ho so." << endl;
+		cout << "\t\t\tNhap Ma So SV: ";
+		cin >> number;
+		file1.open("studentModify.txt", ios::app | ios::out);
+		file >> member >> name >> email >> course >> contact >> address;
+		while (!file.eof())
+		{
+			if (number != member)
+			{
+				file1 << " " << member << " " << name << " " << email << " " << course << " " << contact << " " << address << "\n";
+				found++;
+			}
+			file >> member >> name >> email >> course >> contact >> address;
+			
+		}
+		if (found == 0)
+		{
+			cout << "\t\t\tMa So SV khong tim thay!! " << endl;
+		}
+		file.close();
+		file1.close();
+		remove("student.txt");
+		rename("studentModify.txt", "student.txt");
+	}
+}
 
 int main()
 {
