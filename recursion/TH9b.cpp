@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <cstring>
-#include <string>
 using namespace std;
 
 double binaryToDecimal(int binary, int i = 0)
