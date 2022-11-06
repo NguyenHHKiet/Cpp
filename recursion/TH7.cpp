@@ -39,7 +39,7 @@ void sumEvenOdd(int n)
 int main(int argc, char const *argv[])
 {
     /* code */
-    int n = 3457;
+    int n = 12345;
     sumEvenOdd(n);
     cout << "even: " << resultEven << endl;
     cout << "odd: " << resultOdd << endl;

@@ -18,8 +18,7 @@ int countNumberNot(int n)
 
 int main()
 {
-    /* code */
-    int n = 1234599;
+    int n = 123456789;
     cout << "n = " << countNumberNot(n) << endl;
     return 0;
 }

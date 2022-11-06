@@ -18,7 +18,7 @@ int reverse(int num)
 int main(int argc, char const *argv[])
 {
     /* code */
-    int n = 6789;
+    int n = 123456789;
     reverse(n);
 
     return 0;

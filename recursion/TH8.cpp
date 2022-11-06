@@ -7,12 +7,12 @@ int decimalToBinary(int d)
 {
     if (d == 0)
     {
-        cout << d;
+        cout << d << endl;
         return binary = 0;
     }
     else
     {
-        cout << d;
+        cout << d << endl;
         return binary = d % 2 + 10 * decimalToBinary(d / 2);
     }
 }
