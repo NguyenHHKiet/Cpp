@@ -9,7 +9,7 @@ int findSum(int a[], int n)
 int main(int argc, char const *argv[])
 {
     int A[] = {1, 2, 3, 4, 5};
-    int n = sizeof(A) / sizeof(A[0]); // calculate by byte of elements
+    int n = sizeof(A) / sizeof(A[0]); // calculate by byte of elements, once element is 4 bytes
     cout << "Total Sum: " << findSum(A, n) << endl;
     return 0;
 }

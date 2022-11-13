@@ -14,7 +14,7 @@ int GCD(int a, int b)
 
 int main(int argc, char const *argv[])
 {
-    int a = 100, b = 70;
+    int a = 40, b = 18;
     cout << "G.C.D : " << GCD(a, b) << endl;
     return 0;
 }
