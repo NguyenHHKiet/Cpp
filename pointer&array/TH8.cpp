@@ -1,22 +1,31 @@
 #include <iostream>
 using namespace std;
 
-void input(int **array, int h)
+int pascal(int row, int col)
 {
-    cout << "Enter input array: (" << h << "x" << h << ")" << endl;
-    for (int i = 0; i < h; i++)
+    if (col == row || col == 0)
+        return 1;
+    else
+        return pascal(row - 1, col) + pascal(row - 1, col - 1);
+}
+
+void initPascal(int **array, int height)
+{
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < h; j++)
-            cin >> array[i][j];
+        for (int j = 0; j <= i; j++)
+        {
+            array[i][j] = pascal(i, j);
+        }
     }
 }
 
 void printPascal(int **array, int n)
 {
-    for (int line = 0; line < n; line++)
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 0; i <= line; i++)
-            cout << " " << *(*(array + i) + line);
+        for (int j = 0; j <= i; j++)
+            cout << array[i][j] << "\t";
         cout << "\n";
     }
 }
@@ -32,7 +41,7 @@ int main(int argc, char const *argv[])
     array = new int *[h];
     for (int i = 0; i < h; i++)
         array[i] = new int[h];
-    input(array, h);
+    initPascal(array, h);
     printPascal(array, h);
 
     for (int i = 0; i < h; i++)
