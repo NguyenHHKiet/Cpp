@@ -9,39 +9,31 @@ void sumEvenOdd(int n)
     if (n < 10)
     {
         if (n % 2 == 0)
-        {
             resultEven += n;
-        }
         else
-        {
-            /* code */
             resultOdd += n;
-        }
     }
     else
     {
-        /* code */
         int temp = n % 10;
         if (temp % 2 == 0)
-        {
             resultEven += temp;
-        }
         else
-        {
-            /* code */
             resultOdd += temp;
-        }
-
         sumEvenOdd(n / 10);
     }
 }
 
 int main(int argc, char const *argv[])
 {
-    /* code */
-    int n = 12345;
+    int n;
+    do
+    {
+        cout << "Enter a positive integer: ";
+        cin >> n;
+    } while (!(n > 0));
     sumEvenOdd(n);
-    cout << "even: " << resultEven << endl;
-    cout << "odd: " << resultOdd << endl;
+    cout << "Sum of even: " << resultEven << endl;
+    cout << "Sum of odd: " << resultOdd << endl;
     return 0;
 }

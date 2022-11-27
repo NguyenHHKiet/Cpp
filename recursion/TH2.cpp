@@ -1,42 +1,22 @@
 #include <iostream>
 using namespace std;
 
-int expression(int);
-int exponential(int);
+int factorial(int n)
+{
+    if (n > 1)
+        return n * factorial(n - 1);
+    else
+        return 1;
+}
 
 int main(int argc, char const *argv[])
 {
     int count;
-    cout << "Hello" << endl;
     do
     {
-        cout << "Enter a count into function: ";
+        cout << "Enter a positive integer: ";
         cin >> count;
     } while (!(count > 0));
-
-    cout << "Exponential without negative = " << expression(count) << endl;
+    cout << "Factorial calculation without negative = " << factorial(count) << endl;
     return 0;
-}
-
-int expression(int num)
-{
-    if (num == 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return exponential(num) + expression(num - 1);
-    }
-}
-int exponential(int num)
-{
-    if (num == 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return num * exponential(num - 1);
-    }
 }

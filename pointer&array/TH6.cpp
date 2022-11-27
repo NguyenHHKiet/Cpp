@@ -23,9 +23,7 @@ void print(int *array, int size)
     // length pointing at the end of the array, position at the beginning of the array
     int *length = array + size, *position = array;
     for (position; position < length; position++)
-    {
         cout << *position << " ";
-    }
 }
 
 int main(int argc, char const *argv[])
@@ -34,8 +32,10 @@ int main(int argc, char const *argv[])
     int *ptr = new int[6];
     int array[] = {2, 5, -5, 1, -2, 9};
     ptr = array;
+    cout << "Original array:" << endl;
     print(ptr, 6);
     cout << endl;
+    cout << "Reverse array:" << endl;
     reverse(ptr, 6);
     print(ptr, 6);
     return 0;

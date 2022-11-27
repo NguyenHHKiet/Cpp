@@ -7,22 +7,17 @@ void input(int **array, int h)
     for (int i = 0; i < h; i++)
     {
         for (int j = 0; j < h; j++)
-        {
             cin >> array[i][j];
-        }
     }
 }
 
-void print(int **array, int h)
+void printPascal(int **array, int n)
 {
-    cout << "Print out array: " << endl;
-    for (int i = 0; i < h; i++)
+    for (int line = 0; line < n; line++)
     {
-        for (int j = 0; j < h; j++)
-        {
-            cout << array[i][j] << " ";
-        }
-        cout << endl;
+        for (int i = 0; i <= line; i++)
+            cout << " " << *(*(array + i) + line);
+        cout << "\n";
     }
 }
 
@@ -36,10 +31,13 @@ int main(int argc, char const *argv[])
     } while (h <= 0);
     array = new int *[h];
     for (int i = 0; i < h; i++)
-    {
         array[i] = new int[h];
-    }
     input(array, h);
-    print(array, h);
+    printPascal(array, h);
+
+    for (int i = 0; i < h; i++)
+        delete[] array[i];
+    delete[] array;
+    array = NULL;
     return 0;
 }

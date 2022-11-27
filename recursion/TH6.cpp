@@ -17,9 +17,13 @@ int reverse(int num)
 
 int main(int argc, char const *argv[])
 {
-    /* code */
-    int n = 123456789;
+    int n;
+    do
+    {
+        cout << "Enter a positive integer: ";
+        cin >> n;
+    } while (!(n > 0));
+    cout << "Reverse : " << endl;
     reverse(n);
-
     return 0;
 }

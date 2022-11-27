@@ -1,31 +1,31 @@
 #include <iostream>
 using namespace std;
-
-int fibonacci(int *, int);
+const int MAX = 100;
+int fibonacci(int *, int *, int);
 
 int main(int argc, char const *argv[])
 {
-    int *ptr, count;
-    ptr = new int[];
-    cout << "Hello" << endl;
+    int *p, *q, a = 0, b = 1, count;
+    p = &a, q = &b;
     do
     {
         cout << "Enter a count into function (without negative): ";
         cin >> count;
     } while (!(count > 0));
 
-    cout << "Fibonacci without negative = " << fibonacci(ptr, count) << endl;
+    fibonacci(p, q, count);
     return 0;
 }
 
-int fibonacci(int *ptr, int num)
+int fibonacci(int *p, int *q, int num)
 {
-    if (num == 1 || num == 2)
+    int temp;
+    cout << "Fibonacci series : ";
+    for (int i = 0; i < num; i++)
     {
-        return 1;
-    }
-    else
-    {
-        return fibonacci(num - 2) + fibonacci(num - 1);
+        cout << *p << " ";
+        temp = *p + *q;
+        *p = *q;
+        *q = temp;
     }
 }
