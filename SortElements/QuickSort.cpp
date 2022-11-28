@@ -3,6 +3,11 @@
 Here, an optimized solution is presented using the quicksort sorting algorithm.
 Below is the C++ program to sort an array in ascending order using an optimized approach using quicksort:
 
+Time Complexity:
+
+Best Case –  O(n log n)
+Worst Case-  O(n2)
+ Space Complexity: O(1)
 */
 // C++ program to sort an array in
 // ascending order using optimized
