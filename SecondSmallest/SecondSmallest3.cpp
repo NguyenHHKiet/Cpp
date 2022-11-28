@@ -7,6 +7,11 @@ Algorithm:
 2) Loop through all the elements.
    a) If the current element is smaller than first, then update first and second.
    b) Else if the current element is smaller than second then update second
+
+The same approach can be used to find the largest and second-largest elements in an array.
+
+Time Complexity: O(n)
+Auxiliary Space: O(1)
 */
 // C++ program to find smallest and
 // second smallest elements
