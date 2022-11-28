@@ -61,5 +61,3 @@ int main()
     print2Smallest(arr, n);
     return 0;
 }
-
-// This is code is contributed by rathbhupendra
