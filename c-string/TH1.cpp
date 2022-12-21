@@ -2,122 +2,51 @@
 #include <string>
 using namespace std;
 
-int main(int argc, char const *argv[])
+void character(char *sPtr, int &check)
 {
-    char arr[7] = "chao!";
-    char *a;
-    a = arr;
-    cout << a << endl;
-    cout << a[0] << endl;
-    cout << a[6] << endl;
-
-    char hoTen[50];
-
-    // cin.get(hoTen, 50);
-    // cout << hoTen << endl;
-    // cin.ignore();
-    // bo qua enter va 1 ky trong luong nhap
-    //  or cin.ignore(1);
-    // neu ko dung lenh cin.ignore() thi nhap thu 2 se ko dien ra
-    // cin.getline(hoTen, 50, '\n');
-    // nhap toi da 49 ky tu ke ca khoang trang, ky '\n' se duoc bo qua
-    // cout << hoTen << endl;
-
-    char ac[10];
-    cout << "Nhap chuoi: ";
-    cin.get(ac, 10);
-    // cin >> ac;
-    // cin se dung lai khi gap khoang trang as as 2
-    cout << strlen(ac) << endl; // as as 8
-
-    int demKyTu = 0;
-    while (ac[demKyTu] != '\0')
-        demKyTu++;
-    cout << demKyTu << endl;
-
-    char *p = "Xuan Minh Phu A B ";
-    int dem = 0;
-    while (*p)
+    for (int i = 0; i < strlen(sPtr); i++)
     {
-        if (isspace(*p))
-            dem++;
-        p++;
+        if (check == 0)
+        {
+            sPtr[i] = (char)toupper(sPtr[i]);
+            check = 1;
+        }
+        else if (isspace(*(sPtr + i)))
+            check = 0;
     }
-    cout << "So khoang trang la: " << dem << endl;
+    check = 0;
+}
+void display(char *sPtr)
+{
+    for (int i = 0; i < strlen(sPtr); i++)
+        cout << *(sPtr + i);
+    cout << endl;
+}
+int main()
+{
+    char v1[] = "string match", v2[] = "string un match";
+    char *str_inp1, *str_inp2;
+    str_inp1 = v1, str_inp2 = v2;
+    int check = 0;
 
-    // ham strcat()
-    // cong dung: noi chuoi s2 vao cuoi chuoi s1
-    // ham strncat()
-    // cong dung: noi n ky tu cua chuoi s2 vao cuoi chuoi s1
-    char s1[20] = "chao ban", s2[] = "trang";
-    // strcat(s1, s2);
-    strncat(s1, s2, 2);
-    cout << s1 << endl;
-
-    // dnh vi lan xuat hin dau tien cua ky tu
-    char *s = "Dai Hoc Mo TpHCM";
-    char *pr;
-    pr = strchr(s, 'o');
-    cout << pr << endl;
-
-    // ham strcmp()
-    // cong dng: so sanh chuoi 1 voi chuoi 2
-    // ham strncmp()
-    // cong dng: so sanh chuoi 1 voi chuoi 2 nhung so sanh den n ky tu
-    char *sa1 = "ABS";
-    char *sa2 = "ABSd";
-    if (strcmp(sa1, sa2) == 0)
-        cout << "2 chuoi bang nhau\n";
-    else
-        cout << "s1 lon hon s2\n";
-
-    if (strncmp(sa1, sa2, 3) == 0)
-        cout << "2 chuoi bang nhau\n";
+    // a, so sánh xem chuổi nào dài hơn
+    if (strcmp(str_inp1, str_inp2) == 0)
+        cout << "Both the input strings are equal." << endl;
     else
     {
-        if (strcmp(sa1, sa2) < 0)
-            cout << "s1 nho hon s2\n";
-        else
-            cout << "s1 lon hon s2\n";
+        cout << "The input strings are not equal." << endl;
+        cout << "str_inp1: " << strlen(str_inp1) << endl;
+        cout << "str_inp2: " << strlen(str_inp2) << endl;
     }
 
-    // ham strcpy()
-    // ham strncpy()
-    // cong dung: sao chep chuoi s2 vao mang ky tu s1. tra ve gia tri s1
-    char sd1[30] = "Truong";
-    char *sd2 = "Dai hoc Mo TpHCM";
-    cout << "Chuoi sd1 truoc khi sao chep: " << sd1 << endl;
-    // strcpy(sd1, sd2);
-    strncpy(sd1, sd2, 7);
-    cout << "Chuoi sd1 sau khi sao chep: " << sd1 << endl;
+    // b, chuyển đổi in hoa ký tự đầu
+    character(str_inp1, check);
+    character(str_inp2, check);
+    display(str_inp1);
+    display(str_inp2);
 
-    // ham strlen()
-
-    // ham strtok()
-    // cong dung: ngat s1 thanh cac token boi ky tu cua s2
-    char qw1[] = "Dai hoc Mo TpHCM";
-    char qw2[] = " ";
-    char *ptok = strtok(qw1, qw2);
-    while (ptok != NULL)
-    {
-        cout << ptok << endl; // Dai //hoc //Mo //TpHCM
-        ptok = strtok(NULL, qw2);
-    }
-
-    // ham atof()
-    // cong dung: chuyen chuoi s thanh gia tri double
-    char *df = "209.23";
-    double kq = atof(df);
-    cout << kq << endl;
-    // ham atoi()
-    // cong dung: chuyen chuoi s thanh gia tri int
-    // ham atol()
-    // cong dung: chuyen chuoi s thanh gia tri long int
-
-    string address;
-    cout << "\nNhap chuoi dia chi: ";
-    getline(cin, address, '#');
-    cout << address << endl;
-
+    // c, nối chuổi thứ 2 vào chuổi thứ 1
+    strcat(str_inp1, str_inp2);
+    cout << str_inp1 << endl;
     return 0;
 }
