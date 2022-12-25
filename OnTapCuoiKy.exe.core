@@ -1,0 +1,22 @@
+[main] OnTapCuoiKy 1000 (0) exception: trapped!
+[main] OnTapCuoiKy 1000 (0) exception: code 0xC0000005 at 0x6105AF70
+[main] OnTapCuoiKy 1000 (0) exception: ax 0x0 bx 0x41EFF4 cx 0x0 dx 0x2D8000
+[main] OnTapCuoiKy 1000 (0) exception: si 0x0 di 0x41EFF4 bp 0x247FBFC sp 0x247FBD0
+[main] OnTapCuoiKy 1000 (0) exception: exception is: STATUS_ACCESS_VIOLATION
+[main] OnTapCuoiKy 1000 (0) stack: Stack trace:
+[main] OnTapCuoiKy 1000 (0) stack: frame 0: sp = 0x247F5D8, pc = 0x6100A2C3
+[main] OnTapCuoiKy 1000 (0) stack: frame 1: sp = 0x247F614, pc = 0x76F08CA2
+[main] OnTapCuoiKy 1000 (0) stack: frame 2: sp = 0x247F638, pc = 0x76F08C74
+[main] OnTapCuoiKy 1000 (0) stack: frame 3: sp = 0x247F700, pc = 0x76EE8BA6
+[main] OnTapCuoiKy 1000 (0) stack: frame 4: sp = 0x247FBFC, pc = 0x6101A4A7
+[main] OnTapCuoiKy 1000 (0) stack: frame 5: sp = 0x247FC0C, pc = 0x414ED3
+[main] OnTapCuoiKy 1000 (0) stack: frame 6: sp = 0x247FC94, pc = 0x40125C
+[main] OnTapCuoiKy 1000 (0) stack: frame 7: sp = 0x247FDCC, pc = 0x61004402
+[main] OnTapCuoiKy 1000 (0) stack: frame 8: sp = 0x247FF3C, pc = 0x61004420
+[main] OnTapCuoiKy 1000 (0) stack: frame 9: sp = 0x247FF48, pc = 0x41AA5A
+[main] OnTapCuoiKy 1000 (0) stack: frame 10: sp = 0x247FF58, pc = 0x40103A
+[main] OnTapCuoiKy 1000 (0) stack: frame 11: sp = 0x247FF74, pc = 0x75847D69
+[main] OnTapCuoiKy 1000 (0) stack: frame 12: sp = 0x247FF84, pc = 0x76EDBB9B
+[main] OnTapCuoiKy 1000 (0) stack: frame 13: sp = 0x247FFDC, pc = 0x76EDBB1F
+[main] OnTapCuoiKy 1000 (0) stack: frame 14: sp = 0x247FFEC, pc = 0x0
+[main] OnTapCuoiKy 1000 (0) stack: End of stack trace
